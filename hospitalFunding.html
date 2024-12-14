@@ -147,6 +147,13 @@
 			        results.forEach(result => {
 			        	let resultElement = document.createElement("p");
 			        	resultElement.textContent = result;
+					resultElement.style.padding = "10px";
+					
+					resultElement.style.margin = "10px 0";
+					resultElement.style.border = "1px solid #ccc";
+					resultElement.style.borderRadius = "5px";
+					resultElement.style.backgroundColor = "#ffffff";
+					
 			        	resultsContainer.appendChild(resultElement);
         			});
       				} else {
