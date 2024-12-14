@@ -126,7 +126,19 @@
 				for (let city in Ontario) {
 					if (city.toLowerCase().includes(search)) {
 						let population = Ontario[city].population;
-						results.push(`${city} (Hospitals: ${Ontario[city].join(", ")}) (City population: ${population})`);
+						let hospitalCount = Ontario[city].hospitals.length;
+					
+					        let ratio = population / hospitalCount;
+						
+					        let rating = "bad";
+					        if (ratio <= 75000) {
+					            rating = "great";
+					        } else if (ratio <= 100000) {
+					            rating = "good";
+					        } else if (ratio <= 130000) {
+					            rating = "okay";
+					        }
+						results.push(`${city} (Hospitals: ${Ontario[city].join(", ")}) (City population: ${population}) - Rating: ${rating}`);
 					}
 				}
 				let resultsContainer = document.getElementById("resultsContainer");
