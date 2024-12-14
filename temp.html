@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BMI Calculator</title>
+</head>
+<body>
+    <h1>BMI Calculator</h1>
+    <form method="post" action="/calculate">
+        <label>
+            <input type="radio" name="unit" value="metric" checked> Metric (cm, kg)
+        </label>
+        <label>
+            <input type="radio" name="unit" value="imperial"> Imperial (ft, in, lbs)
+        </label>
+        <br><br>
+        <label for="height1">Height:</label>
+        <input type="text" id="height1" name="height1" placeholder="e.g., 170 (cm) or 5 (ft)" required><br><br>
+        <div id="imperial-fields" style="display: none;">
+            <label for="height2">Inches:</label>
+            <input type="text" id="height2" name="height2" placeholder="e.g., 7 (in)">
+        </div>
+        <label for="weight">Weight:</label>
+        <input type="text" id="weight" name="weight" placeholder="e.g., 70 (kg) or 150 (lbs)" required><br><br>
+        <button type="submit">Calculate</button>
+        <button type="reset">Clear</button>
+    </form>
+
+    {% if bmi %}
+        <h2>Your BMI: {{ bmi }}</h2>
+    {% elif error %}
+        <h2 style="color: red;">{{ error }}</h2>
+    {% endif %}
+
+    <script>
+        document.querySelectorAll('input[name=\"unit\"]').forEach(radio => {\n            radio.addEventListener('change', () => {\n                const imperialFields = document.getElementById('imperial-fields');\n                if (radio.value === 'imperial') {\n                    imperialFields.style.display = 'block';\n                } else {\n                    imperialFields.style.display = 'none';\n                }\n            });\n        });\n    </script>
+</body>
+</html>
