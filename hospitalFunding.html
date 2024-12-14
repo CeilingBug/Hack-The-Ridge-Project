@@ -2,7 +2,7 @@
 	<head>
 		<meta charset="UTF-8">
   		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>HTR Health</title>
+		<title>Healthcare Services</title>
 		<link rel="stylesheet" href="styles.css"/>
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -117,49 +117,51 @@
 			    }
 			  };
 			function searchHospital() {
-				let search = document.getElementById("searchInput").value;
-			  
-				search = search.toLowerCase();
-			  
-				let results = [];
-			  
-				for (let city in Ontario) {
-					if (city.toLowerCase().includes(search)) {
-						let population = Ontario[city].population;
-						let hospitalCount = Ontario[city].hospitals.length;
-					
-					        let ratio = population / hospitalCount;
-						
-					        let rating = "bad";
-					        if (ratio <= 75000) {
-					            rating = "great";
-					        } else if (ratio <= 100000) {
-					            rating = "good";
-					        } else if (ratio <= 130000) {
-					            rating = "okay";
-					        }
-						results.push(`${city} (Hospitals: ${Ontario[city].join(", ")}) (City population: ${population}) - Rating: ${rating}`);
-					}
-				}
-				let resultsContainer = document.getElementById("resultsContainer");
-				resultsContainer.innerHTML = "";
-				if (results.length > 0) {
+			    let search = document.getElementById("searchInput").value;
+			
+			    search = search.toLowerCase();
+			
+			    let results = [];
+			
+			    for (let city in Ontario) {
+			        if (city.toLowerCase().includes(search)) {
+			            let population = Ontario[city].population;
+			            let hospitals = Ontario[city].hospitals;
+			            let hospitalCount = hospitals.length;
+			
+			            let ratio = population / hospitalCount;
+			
+			            let rating = "bad";
+			            if (ratio <= 75000) {
+			                rating = "great";
+			            } else if (ratio <= 100000) {
+			                rating = "good";
+			            } else if (ratio <= 130000) {
+			                rating = "okay";
+			            }
+			
+			            results.push(`${city} (Hospitals: ${hospitals.join(", ")}) (City population: ${population}) - Rating: ${rating}`);
+			        }
+			    }
+			
+			    let resultsContainer = document.getElementById("resultsContainer");
+			    resultsContainer.innerHTML = "";
+			    if (results.length > 0) {
 			        results.forEach(result => {
-			        	let resultElement = document.createElement("p");
-			        	resultElement.textContent = result;
-					resultElement.style.padding = "10px";
-					
-					resultElement.style.margin = "10px 0";
-					resultElement.style.border = "1px solid #ccc";
-					resultElement.style.borderRadius = "5px";
-					resultElement.style.backgroundColor = "#ffffff";
-					
-			        	resultsContainer.appendChild(resultElement);
-        			});
-      				} else {
-        				resultsContainer.innerHTML = "<p>No results found</p>"; // Display a message if no results
-      				}
-   			}
+			            let resultElement = document.createElement("p");
+			            resultElement.textContent = result;
+			            resultElement.style.padding = "10px";
+			            resultElement.style.margin = "10px 0";
+			            resultElement.style.border = "1px solid #ccc";
+			            resultElement.style.borderRadius = "5px";
+			            resultElement.style.backgroundColor = "#ffffff";
+			
+			            resultsContainer.appendChild(resultElement);
+			        });
+			    } else {
+			        resultsContainer.innerHTML = "<p>No results found</p>";
+			    }
+			}
 		</script>
 		<style>
 		      body {
