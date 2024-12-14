@@ -167,7 +167,7 @@
 			            resultElement.innerHTML = `
 			                <p>${result.city} (Hospitals: ${result.hospitals.join(", ")}) (City population: ${result.population})</p>
 			                <p>Rating: <span style="font-weight: bold; color: ${result.barColor};">${result.ratingText}</span></p>
-			                <div style="height: 10px; background-color: ${result.barColor}; width: 100%;"></div>
+			                <div style="height: 10px; background-color: ${result.barColor}; width: 80%;"></div>
 			            `;
 			            resultsContainer.appendChild(resultElement);
 			        });
@@ -186,7 +186,7 @@
 		        flex-direction: column;
 		        align-items: center;
 		        justify-content: center;
-		        height: 150vh;
+		        height: 100vh;
 		      }
 		
 		      #Intro {
