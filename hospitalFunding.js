@@ -1,135 +1,4 @@
-const hospitalsCanada = {
-  "Quebec": {
-    "Abercorn": [],
-    "Acton Vale": [],
-    "Adstock": [],
-    "Aguanish": [],
-    "Akulivik": [],
-    "Albanel": [],
-    "Albertville": [],
-    "Aumond": [],
-    "Baie-Comeau": ["Hôpital Le Royer"],
-    "Baie-D'Urfé": [],
-    "Baie-Saint-Paul": ["Hôpital de Baie-Saint-Paul"],
-    "Barkmere": [],
-    "Beaconsfield": [],
-    "Beauceville": ["Hôpital de Beauceville"],
-    "Beauharnois": [],
-    "Beaulac-Garthby": [],
-    "Beaumont": [],
-    "Belcourt": [],
-    "Belleterre": [],
-    "Beloeil": ["Hôpital Honoré-Mercier"],
-    "Berthier-sur-Mer": [],
-    "Berthierville": [],
-    "Blainville": [],
-    "Boisbriand": [],
-    "Boucherville": [],
-    "Bromont": [],
-    "Carleton-sur-Mer": ["Hôpital de Maria"],
-    "Cowansville": ["Hôpital Brome-Missisquoi-Perkins"],
-    "Granby": ["Hôpital de Granby"],
-    "Sherbrooke": ["CHUS – Hôpital Fleurimont", "CHUS – Hôtel-Dieu"],
-    "Montreal": ["Montreal General Hospital", "Jewish General Hospital", "Saint Mary's Hospital Center", "CHUM (Centre hospitalier de l’Université de Montréal)", "MUHC (McGill University Health Centre)", "Hôpital Maisonneuve-Rosemont"],
-    "Quebec City": ["CHU de Québec - Hôtel-Dieu de Québec", "Hôpital Saint-François d'Assise", "Hôpital de l'Enfant-Jésus"],
-  },
-  "Alberta": {
-    "Airdrie": ["Airdrie Community Health Centre"],
-    "Banff": ["Banff Mineral Springs Hospital"],
-    "Brooks": ["Brooks Health Centre"],
-    "Calgary": ["Foothills Medical Centre", "Peter Lougheed Centre", "Rockyview General Hospital", "South Health Campus"],
-    "Camrose": ["Camrose Community Health Centre"],
-    "Canmore": ["Canmore General Hospital"],
-    "Edmonton": ["University of Alberta Hospital", "Royal Alexandra Hospital", "Misericordia Community Hospital", "Grey Nuns Community Hospital", "Sturgeon Community Hospital"],
-    "Fort McMurray": ["Northern Lights Regional Health Centre"],
-    "Grande Prairie": ["Grande Prairie Regional Hospital"],
-    "Leduc": ["Leduc Community Hospital"],
-    "Lethbridge": ["Chinook Regional Hospital"],
-    "Medicine Hat": ["Medicine Hat Regional Hospital"],
-    "Red Deer": ["Red Deer Regional Hospital Centre"],
-    "Spruce Grove": ["WestView Health Centre"],
-    "St. Albert": ["Sturgeon Community Hospital"],
-    "Wetaskiwin": ["Wetaskiwin Hospital and Care Centre"],
-  },
-  "British Columbia": {
-    "Abbotsford": ["Abbotsford Regional Hospital & Cancer Centre"],
-    "Burnaby": ["Burnaby Hospital"],
-    "Campbell River": ["Campbell River Hospital"],
-    "Chilliwack": ["Chilliwack General Hospital"],
-    "Coquitlam": ["Eagle Ridge Hospital"],
-    "Kamloops": ["Royal Inland Hospital"],
-    "Kelowna": ["Kelowna General Hospital"],
-    "Nanaimo": ["Nanaimo Regional General Hospital"],
-    "New Westminster": ["Royal Columbian Hospital"],
-    "Prince George": ["University Hospital of Northern British Columbia"],
-    "Richmond": ["Richmond Hospital"],
-    "Surrey": ["Surrey Memorial Hospital"],
-    "Vancouver": ["Vancouver General Hospital", "St. Paul’s Hospital", "BC Children’s Hospital"],
-    "Victoria": ["Victoria General Hospital"],
-    "West Vancouver": ["Lions Gate Hospital (nearby in North Vancouver)"],
-  },
-  "Manitoba": {
-    "Brandon": ["Brandon Regional Health Centre"],
-    "Dauphin": ["Dauphin Regional Health Centre"],
-    "Flin Flon": ["Flin Flon General Hospital"],
-    "Portage la Prairie": ["Portage District General Hospital"],
-    "Selkirk": ["Selkirk Regional Health Centre", "Selkirk Mental Health Centre"],
-    "Steinbach": ["Bethesda Regional Health Centre"],
-    "Thompson": ["Thompson General Hospital"],
-    "Winnipeg": ["Health Sciences Centre", "St. Boniface Hospital", "Concordia Hospital", "Grace Hospital", "Seven Oaks General Hospital", "Misericordia Health Centre", "Victoria General Hospital"]
-  },
-  "New Brunswick": {
-    "Bathurst": ["Chaleur Regional Hospital"],
-    "Campbellton": ["Campbellton Regional Hospital"],
-    "Dieppe": ["Dieppe Hospital"],
-    "Edmundston": ["Edmundston Regional Hospital"],
-    "Fredericton": ["Dr. Everett Chalmers Regional Hospital", "York Care Centre"],
-    "Miramichi": ["Miramichi Regional Hospital"],
-    "Moncton": ["The Moncton Hospital", "Saint John Regional Hospital", "Dr. Georges-L.-Dumont University Hospital Centre"],
-    "Saint John": ["Saint John Regional Hospital", "St. Joseph's Hospital"],
-    "Shediac": ["Shediac Hospital"]
-  },
-  "Newfoundland and Labrador": {
-    "Corner Brook": ["Western Memorial Regional Hospital"],
-    "Gander": ["James Paton Memorial Regional Health Centre"],
-    "Grand Falls-Windsor": ["Central Newfoundland Regional Health Centre"],
-    "Happy Valley-Goose Bay": ["Labrador Health Centre"],
-    "Labrador City": ["Sir Thomas Roddick Hospital"],
-    "Mount Pearl": ["Mount Pearl Medical Clinic (no major hospital, but a medical clinic)"],
-    "St. John's": ["Health Sciences Centre", "St. Clare's Mercy Hospital", "Millennium Medical Centre", "The Janeway Children's Health and Rehabilitation Centre"],
-    "Stephenville": ["Stephenville Hospital"]
-  },
-  "Northwest Territories": {
-    "Behchoko": ["Behchoko Health Centre"],
-    "Fort Simpson": ["Fort Simpson Health Centre"],
-    "Fort Smith": ["Fort Smith Health Centre"],
-    "Hay River": ["Hay River Health Centre"],
-    "Inuvik": ["Inuvik Regional Health Centre"],
-    "Norman Wells": ["Norman Wells Health Centre"],
-    "Yellowknife": ["Yellowknife Health Centre", "Stanton Territorial Hospital"]
-  },
-  "Nova Scotia": {
-    "Amherst": ["Amherst Hospital"],
-    "Antigonish": ["St. Martha's Regional Hospital"],
-    "Bridgewater": ["South Shore Regional Hospital"],
-    "Dartmouth": ["Dartmouth General Hospital", "The Nova Scotia Hospital"],
-    "Halifax": ["Queen Elizabeth II Health Sciences Centre", "Victoria General Hospital", "Dhalhousie Medical School", "IWK Health Centre"],
-    "Kentville": ["Valley Regional Hospital"],
-    "New Glasgow": ["Aberdeen Hospital"],
-    "Sydney": ["Cape Breton Regional Hospital"],
-    "Truro": ["Colchester East Hants Health Centre"],
-    "Yarmouth": ["Yarmouth Regional Hospital"]
-  },
-  "Nunavut": {
-    "Arviat": ["Arviat Health Centre"],
-    "Baker Lake": ["Baker Lake Health Centre"],
-    "Cambridge Bay": ["Cambridge Bay Health Centre"],
-    "Iqaluit": ["Qikiqtani General Hospital"],
-    "Kugluktuk": ["Kugluktuk Health Centre"],
-    "Pangnirtung": ["Pangnirtung Health Centre"],
-    "Rankin Inlet": ["Rankin Inlet Health Centre"]
-  },
-  "Ontario": {
+const Ontario = {
     "Barrie": ["Royal Victoria Regional Health Centre"],
     "Brampton": ["Brampton Civic Hospital", "Peel Memorial Centre for Integrated Health and Wellness"],
     "Brantford": ["Brantford General Hospital"],
@@ -153,30 +22,19 @@ const hospitalsCanada = {
     "Vaughan": ["Cortellucci Vaughan Hospital"],
     "Waterloo": ["Grand River Hospital"],
     "Windsor": ["Windsor Regional Hospital"]
-  },
-  "Prince Edward Island": {
-    "Charlottetown": ["Queen Elizabeth Hospital"],
-    "Summerside": ["Prince County Hospital"],
-    "Cornwall": ["Cornwall Community Hospital"],
-    "Stratford": ["Stratford Health Centre"]
-  },
-  "Saskatchewan": {
-    "Estevan": ["Estevan Regional Hospital"],
-    "Humboldt": ["Humboldt District Hospital"],
-    "Lloydminster": ["Lloydminster Hospital"],
-    "Moose Jaw": ["Moose Jaw Union Hospital", "Dr. F.H. Wigmore Regional Hospital"],
-    "North Battleford": ["North Battleford Regional Hospital"],
-    "Prince Albert": ["Victoria Hospital of Prince Albert"],
-    "Regina": ["Regina General Hospital", "Pasqua Hospital", "Wascana Rehabilitation Centre"],
-    "Saskatoon": ["Royal University Hospital", "St. Paul's Hospital", "Saskatoon City Hospital"],
-    "Swift Current": ["Cypress Regional Hospital"],
-    "Weyburn": ["Weyburn General Hospital"],
-    "Yorkton": ["Yorkton Regional Health Centre"]
-  },
-  "Yukon": {
-    "Carmacks": ["Carmacks Health Centre"],
-    "Dawson City": ["Dawson City General Hospital"],
-    "Haines Junction": ["Haines Junction Health Centre"],
-    "Whitehorse": ["Whitehorse General Hospital", "McDonald Lodge"]
-  }
-};
+  };
+function searchHospital() {
+  let search = prompt("Enter the city name you are looking for:");
+  
+  search = search.toLowerCase();
+  
+  let results = [];
+  
+  for (let city in Ontario) {
+    if (city.toLowerCase().includes(search)) {
+      results.push(`${city} (Hospitals: ${Ontario[city].join(", ")})`);
+    }
+    else {
+      results.push(`none`);
+    }
+  
