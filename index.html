@@ -2,7 +2,7 @@
 	<head>
 		<meta charset="UTF-8">
   		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>HTR Healthcare</title>
+		<title>HTR Health</title>
 		<link rel="stylesheet" href="styles.css"/>
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -10,13 +10,17 @@
 	</head>
 	<body>
 		<div id="Intro">
-			<h1 class="lato-regular">Title here</h1>
-			<p class="lato-bold">info</p>
+			<h1 class="lato-regular">HTR Health</h1>
+			<p class="lato-bold">Find Hospitals by City</p>
 		</div>
+		<div class="search-container">
 			<p>Enter a city name to search for its hospitals:</p>
   			<input type="text" id="searchInput" placeholder="Enter city name">
   			<button onclick="searchHospital()">Search</button>
+		</div>
+		
 		<div id="resultsContainer"></div>
+		
 		<script>
 					const Ontario = {
 			"Barrie": ["Royal Victoria Regional Health Centre"],
@@ -68,5 +72,97 @@
       				}
    			}
 		</script>
+		<style>
+		      body {
+		        font-family: 'Lato', sans-serif;
+		        background-color: #f4f4f9;
+		        margin: 0;
+		        padding: 0;
+		        display: flex;
+		        flex-direction: column;
+		        align-items: center;
+		        justify-content: center;
+		        height: 100vh;
+		      }
+		
+		      #Intro {
+		        text-align: center;
+		        margin-bottom: 30px;
+		      }
+		
+		      h1 {
+		        font-size: 50px;
+		        color: #3b3b3b;
+		        margin: 0;
+		      }
+		
+		      p {
+		        font-size: 18px;
+		        color: #666;
+		        margin: 10px 0;
+		      }
+		
+		      .search-container {
+		        display: flex;
+		        flex-direction: column;
+		        align-items: center;
+		        margin-bottom: 30px;
+		      }
+		
+		      #searchInput {
+		        padding: 10px;
+		        margin: 10px;
+		        font-size: 16px;
+		        width: 250px;
+		        border-radius: 5px;
+		        border: 1px solid #ccc;
+		      }
+		
+		      button {
+		        padding: 10px 20px;
+		        font-size: 16px;
+		        background-color: #4CAF50;
+		        color: white;
+		        border: none;
+		        border-radius: 5px;
+		        cursor: pointer;
+		        transition: background-color 0.3s;
+		      }
+		
+		      button:hover {
+		        background-color: #45a049;
+		      }
+		
+		      .results-container {
+		        margin-top: 20px;
+		        padding: 20px;
+		        background-color: white;
+		        width: 80%;
+		        border-radius: 5px;
+		        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+		      }
+		
+		      .results-container p {
+		        font-size: 16px;
+		        line-height: 1.6;
+		        color: #444;
+		      }
+		
+		      .results-container p:nth-child(odd) {
+		        background-color: #f9f9f9;
+		        padding: 10px;
+		        border-radius: 5px;
+		      }
+		
+		      .results-container p:nth-child(even) {
+		        padding: 10px;
+		        border-radius: 5px;
+		      }
+		
+		      .results-container p.no-results {
+		        color: red;
+		        font-weight: bold;
+		      }
+		</style>
 	</body>
 </html>
