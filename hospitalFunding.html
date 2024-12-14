@@ -132,15 +132,24 @@
 			            let ratio = population / hospitalCount;
 			
 			            let rating = "bad";
+				    let barColor = "red";
+			            let ratingText = "Bad";
+				    
 			            if (ratio <= 100,000) {
 			                rating = "great";
+					barColor = "green";
+			                ratingText = "Great";
 			            } else if (ratio <= 150000) {
 			                rating = "good";
+					barColor = "yellow";
+			                ratingText = "Good";
 			            } else if (ratio <= 200000) {
 			                rating = "okay";
+					barColor = "orange";
+			                ratingText = "Okay";
 			            }
 			
-			            results.push(`${city} (Hospitals: ${hospitals.join(", ")}) (City population: ${population}) - Rating: ${rating}`);
+			            results.push({ city, hospitals, population, rating, barColor, ratingText });
 			        }
 			    }
 			
@@ -148,14 +157,18 @@
 			    resultsContainer.innerHTML = "";
 			    if (results.length > 0) {
 			        results.forEach(result => {
-			            let resultElement = document.createElement("p");
-			            resultElement.textContent = result;
+			            let resultElement = document.createElement("div");
 			            resultElement.style.padding = "20px";
 			            resultElement.style.margin = "20px 0";
 			            resultElement.style.border = "1px solid #ccc";
 			            resultElement.style.borderRadius = "5px";
 			            resultElement.style.backgroundColor = "#ffffff";
-			
+			            
+			            resultElement.innerHTML = `
+			                <p>${result.city} (Hospitals: ${result.hospitals.join(", ")}) (City population: ${result.population})</p>
+			                <p>Rating: <span style="font-weight: bold; color: ${result.barColor};">${result.ratingText}</span></p>
+			                <div style="height: 10px; background-color: ${result.barColor}; width: 100%;"></div>
+			            `;
 			            resultsContainer.appendChild(resultElement);
 			        });
 			    } else {
