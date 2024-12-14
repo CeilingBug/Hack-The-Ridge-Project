@@ -75,8 +75,8 @@ document.addEventListener('DOMContentLoaded', () => {
             weightLabel.textContent = "Weight (kg):";
         } else {
             height1Label.textContent = "Height (ft):";
-            height2Label.style.display = 'inline';
-            height2Input.style.display = 'inline';
+            height2Label.style.display = 'inline-block';
+            height2Input.style.display = 'inline-block';
             weightLabel.textContent = "Weight (lbs):";
         }
     }
