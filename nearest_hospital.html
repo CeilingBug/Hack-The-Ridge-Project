@@ -4,73 +4,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nearest Health Service Provider</title>
-    <script>
-        // Service provider data from the dataset
-        const serviceProviders = [
-            { name: "Hotel Dieu Hospital of Cornwall", x: -8319106.089, y: 5623913.698, address: "14 York Street, Cornwall", community: "Cornwall" },
-            { name: "Cornwall Community Hospital", x: -8317637.986, y: 5626091.488, address: "840 McConnell Avenue, Cornwall", community: "Cornwall" },
-            { name: "Winchester District Memorial Hospital", x: -8388190.222, y: 5635457.271, address: "566 Louise Street, Winchester", community: "Winchester" },
-            { name: "Glengarry Memorial Hospital", x: -8309477.705, y: 5669982.559, address: "20260 County Road 43, Alexandria", community: "Alexandria" },
-            { name: "Hawkesbury And District General Hospital", x: -8305315.543, y: 5716281.076, address: "1111 Ghislain Street, Hawkesbury", community: "Hawkesbury" }
-        ];
+        <script>
+            // Service provider data from the dataset
+            const serviceProviders = [{'ENGLISH_NA': 'Hotel Dieu Hospital of Cornwall', 'X': -8319106.089, 'Y': 5623913.698, 'ADDRESS_LI': '14 York Street', 'COMMUNITY': 'Cornwall'}, {'ENGLISH_NA': 'Cornwall Community Hospital', 'X': -8317637.986, 'Y': 5626091.488, 'ADDRESS_LI': '840 McConnell Avenue', 'COMMUNITY': 'Cornwall'}, {'ENGLISH_NA': 'Winchester District Memorial Hospital', 'X': -8388190.222, 'Y': 5635457.271, 'ADDRESS_LI': '566 Louise Street', 'COMMUNITY': 'Winchester'}, {'ENGLISH_NA': 'Glengarry Memorial Hospital', 'X': -8309477.705, 'Y': 5669982.559, 'ADDRESS_LI': '20260 County Road 43', 'COMMUNITY': 'Alexandria'}, {'ENGLISH_NA': 'Hawkesbury And District General Hospital', 'X': -8305315.543, 'Y': 5716281.076, 'ADDRESS_LI': '1111 Ghislain Street', 'COMMUNITY': 'Hawkesbury'}];
 
-        // Function to calculate distance between two points (Pythagorean formula for projected coordinates)
-        function calculateDistance(x1, y1, x2, y2) {
-            return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
-        }
-
-        // Find nearest service provider
-        function findNearestServiceProvider(userX, userY) {
-            let nearest = null;
-            let minDistance = Infinity;
-
-            serviceProviders.forEach(provider => {
-                const distance = calculateDistance(userX, userY, provider.x, provider.y);
-                if (distance < minDistance) {
-                    minDistance = distance;
-                    nearest = provider;
-                }
-            });
-
-            return nearest;
-        }
-
-        // Get user's geolocation
-        function locateUser() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(position => {
-                    const userLat = position.coords.latitude;
-                    const userLon = position.coords.longitude;
-
-                    // Convert user's coordinates to projected system (simplified for this example)
-                    const userX = userLon * 111320; // Approximation for x in meters
-                    const userY = userLat * 110540; // Approximation for y in meters
-
-                    const nearest = findNearestServiceProvider(userX, userY);
-
-                    if (nearest) {
-                        document.getElementById('result').innerHTML = `
-                            <h3>Nearest Service Provider:</h3>
-                            <p><strong>${nearest.name}</strong></p>
-                            <p>Address: ${nearest.address}</p>
-                            <p>Community: ${nearest.community}</p>
-                        `;
-                    } else {
-                        document.getElementById('result').innerText = "No service provider found.";
-                    }
-                }, () => {
-                    alert("Unable to retrieve your location.");
-                });
-            } else {
-                alert("Geolocation is not supported by your browser.");
+            // Function to calculate distance between two points (Pythagorean formula for projected coordinates)
+            function calculateDistance(x1, y1, x2, y2) {
+                return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
             }
-        }
+
+            // Find nearest service provider
+            function findNearestServiceProvider(userX, userY) {
+                let nearest = null;
+                let minDistance = Infinity;
+
+                serviceProviders.forEach(provider => {
+                    const distance = calculateDistance(userX, userY, provider.X, provider.Y);
+                    if (distance < minDistance) {
+                        minDistance = distance;
+                        nearest = provider;
+                    }
+                });
+
+                return nearest;
+            }
+
+            // Get user's geolocation
+            function locateUser() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(position => {
+                        const userLat = position.coords.latitude;
+                        const userLon = position.coords.longitude;
+
+                        // Convert user's coordinates to projected system (simplified for this example)
+                        const userX = userLon * 111320; // Approximation for x in meters
+                        const userY = userLat * 110540; // Approximation for y in meters
+
+                        const nearest = findNearestServiceProvider(userX, userY);
+
+                        if (nearest) {
+                            document.getElementById('result').innerHTML = `
+                                <h3>Nearest Service Provider:</h3>
+                                <p><strong>${nearest.ENGLISH_NA}</strong></p>
+                                <p>Address: ${nearest.ADDRESS_LI}</p>
+                                <p>Community: ${nearest.COMMUNITY}</p>
+                            `;
+                        } else {
+                            document.getElementById('result').innerText = "No service provider found.";
+                        }
+                    }, () => {
+                        alert("Unable to retrieve your location.");
+                    });
+                } else {
+                    alert("Geolocation is not supported by your browser.");
+                }
+            }
     </script>
 </head>
 <body>
-    <h1>Find the Nearest Health Service Provider</h1>
-    <p>Click the button below to allow the application to use your location and find the nearest service provider.</p>
-    <button onclick="locateUser()">Find Nearest Service Provider</button>
-    <div id="result" style="margin-top: 20px;"></div>
+<h1>Find the Nearest Health Service Provider</h1>
+<p>Click the button below to allow the application to use your location and find the nearest service provider.</p>
+<button onclick="locateUser()">Find Nearest Service Provider</button>
+<div id="result" style="margin-top: 20px;"></div>
 </body>
 </html>
