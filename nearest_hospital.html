@@ -6,7 +6,52 @@
     <title>Nearest Health Service Provider</title>
         <script>
             // Service provider data from the dataset
-            const serviceProviders = [{'ENGLISH_NA': 'Hotel Dieu Hospital of Cornwall', 'X': -8319106.089, 'Y': 5623913.698, 'ADDRESS_LI': '14 York Street', 'COMMUNITY': 'Cornwall'}, {'ENGLISH_NA': 'Cornwall Community Hospital', 'X': -8317637.986, 'Y': 5626091.488, 'ADDRESS_LI': '840 McConnell Avenue', 'COMMUNITY': 'Cornwall'}, {'ENGLISH_NA': 'Winchester District Memorial Hospital', 'X': -8388190.222, 'Y': 5635457.271, 'ADDRESS_LI': '566 Louise Street', 'COMMUNITY': 'Winchester'}, {'ENGLISH_NA': 'Glengarry Memorial Hospital', 'X': -8309477.705, 'Y': 5669982.559, 'ADDRESS_LI': '20260 County Road 43', 'COMMUNITY': 'Alexandria'}, {'ENGLISH_NA': 'Hawkesbury And District General Hospital', 'X': -8305315.543, 'Y': 5716281.076, 'ADDRESS_LI': '1111 Ghislain Street', 'COMMUNITY': 'Hawkesbury'}];
+            const serviceProviders =
+            [
+    {'ENGLISH_NA': 'Bellwood Health Services', 'X': -8831424.217, 'Y': 5435198.739, 'ADDRESS_LI': '1020 McNicoll Avenue', 'COMMUNITY': 'Toronto'},
+    {'ENGLISH_NA': 'Humber River Hospital - Wilson', 'X': -8848832.106, 'Y': 5422949.05, 'ADDRESS_LI': '1235 Wilson Avenue', 'COMMUNITY': 'Toronto'},
+    {'ENGLISH_NA': 'North York General Hospital - General Site', 'X': -8834786.672, 'Y': 5429842.225, 'ADDRESS_LI': '4001 Leslie Street', 'COMMUNITY': 'Toronto'},
+    {'ENGLISH_NA': 'Reactivation Care Centre – Finch', 'X': -8852862.178, 'Y': 5427649.553, 'ADDRESS_LI': '2111 Finch Avenue West', 'COMMUNITY': 'Toronto'},
+    {'ENGLISH_NA': 'Don Mills Surgical Unit', 'X': -8859859.899, 'Y': 5417308.855, 'ADDRESS_LI': '830 Dixon Road', 'COMMUNITY': 'Toronto'},
+    {'ENGLISH_NA': 'Trillium Health Partners- Queensway', 'X': -8856729.75, 'Y': 5405235.512, 'ADDRESS_LI': '150 Sherway Drive', 'COMMUNITY': 'Toronto'},
+    {'ENGLISH_NA': 'Sunnybrook Health Sciences Centre - St. John\'s Rehab', 'X': -8839296.867, 'Y': 5432961.875, 'ADDRESS_LI': '285 Cummer Avenue', 'COMMUNITY': 'Toronto'},
+    {'ENGLISH_NA': 'Holland Bloorview Kids Rehabilitation Hospital', 'X': -8835727.03, 'Y': 5421881.827, 'ADDRESS_LI': '150 Kilgour Road', 'COMMUNITY': 'Toronto'},
+    {'ENGLISH_NA': 'Unity Health Toronto - Providence', 'X': -8825815.596, 'Y': 5420907.091, 'ADDRESS_LI': '3276 St. Clair Avenue East', 'COMMUNITY': 'Toronto'},
+    {'ENGLISH_NA': 'Unity Health Toronto - St. Joseph\'s', 'X': -8844346.355, 'Y': 5409774.305, 'ADDRESS_LI': '30 The Queensway', 'COMMUNITY': 'Toronto'},
+    {'ENGLISH_NA': 'Unity Health Toronto - St. Michael\'s', 'X': -8836241.048, 'Y': 5412009.616, 'ADDRESS_LI': '30 Bond Street', 'COMMUNITY': 'Toronto'},
+    {'ENGLISH_NA': 'Centre For Addiction and Mental Health - College Street Site', 'X': -8838651.273, 'Y': 5412701.518, 'ADDRESS_LI': '250 College Street', 'COMMUNITY': 'Toronto'},
+    {'ENGLISH_NA': 'Hennick Bridgepoint Hospital', 'X': -8833814.509, 'Y': 5413892.182, 'ADDRESS_LI': '14 St. Mathews Road', 'COMMUNITY': 'Toronto'},
+    {'ENGLISH_NA': 'Sinai Health System - Mount Sinai', 'X': -8837623.6, 'Y': 5412621.914, 'ADDRESS_LI': '600 University Avenue', 'COMMUNITY': 'Toronto'},
+    {'ENGLISH_NA': 'Baycrest Hospital - North York', 'X': -8842369.536, 'Y': 5423804.133, 'ADDRESS_LI': '3560 Bathurst Street', 'COMMUNITY': 'Toronto'},
+    {'ENGLISH_NA': 'Runnymede Healthcare Centre', 'X': -8847833.181, 'Y': 5413607.954, 'ADDRESS_LI': '625 Runnymede Road', 'COMMUNITY': 'Toronto'},
+    {'ENGLISH_NA': 'Salvation Army Toronto Grace Health Centre', 'X': -8836906.509, 'Y': 5414610.457, 'ADDRESS_LI': '650 Church Street', 'COMMUNITY': 'Toronto'},
+    {'ENGLISH_NA': 'Kensington Eye Institute', 'X': -8839136.665, 'Y': 5412565.108, 'ADDRESS_LI': '340 College Street', 'COMMUNITY': 'Toronto'},
+    {'ENGLISH_NA': 'University Health Network - Bickle Centre', 'X': -8842365.958, 'Y': 5409151.578, 'ADDRESS_LI': '130 Dunn Avenue', 'COMMUNITY': 'Toronto'},
+    {'ENGLISH_NA': 'University Health Network - University Centre', 'X': -8837582.386, 'Y': 5412483.359, 'ADDRESS_LI': '550 University Avenue', 'COMMUNITY': 'Toronto'},
+    {'ENGLISH_NA': 'University Health Network - Lyndhurst', 'X': -8835355.05, 'Y': 5421954.316, 'ADDRESS_LI': '520 Sutherland Drive', 'COMMUNITY': 'Toronto'},
+    {'ENGLISH_NA': 'University Health Network - Princess Margaret', 'X': -8837648.05, 'Y': 5412701.894, 'ADDRESS_LI': '610 University Avenue', 'COMMUNITY': 'Toronto'},
+    {'ENGLISH_NA': 'University Health Network - Toronto General', 'X': -8837327.582, 'Y': 5412911.381, 'ADDRESS_LI': '200 Elizabeth Street', 'COMMUNITY': 'Toronto'},
+    {'ENGLISH_NA': 'University Health Network - Toronto Western', 'X': -8839480.819, 'Y': 5411953.618, 'ADDRESS_LI': '399 Bathrust Street', 'COMMUNITY': 'Toronto'},
+    {'ENGLISH_NA': 'West Park  Healthcare Centre', 'X': -8850788.641, 'Y': 5417413.085, 'ADDRESS_LI': '82 Buttonwood Avenue', 'COMMUNITY': 'Toronto'},
+    {'ENGLISH_NA': 'Sunnybrook Health Sciences Centre - Bayview Campus', 'X': -8836425.815, 'Y': 5422440.975, 'ADDRESS_LI': '2075 Bayview Avenue', 'COMMUNITY': 'Toronto'},
+    {'ENGLISH_NA': 'Sunnybrook Health Sciences Centre - Holland Orthopaedic & Arthritic Centre', 'X': -8836811.183, 'Y': 5413796.902, 'ADDRESS_LI': '43 Wellesley Street East', 'COMMUNITY': 'Toronto'},
+    {'ENGLISH_NA': 'The Hospital For Sick Children', 'X': -8837526.485, 'Y': 5412447.02, 'ADDRESS_LI': '555 University Avenue', 'COMMUNITY': 'Toronto'},
+    {'ENGLISH_NA': 'Toronto East Health Network - Michael Garron Hospital', 'X': -8830543.07, 'Y': 5417531.266, 'ADDRESS_LI': '825 Coxwell Avenue', 'COMMUNITY': 'Toronto'},
+    {'ENGLISH_NA': 'Casey House Hospice', 'X': -8836302.754, 'Y': 5414311.136, 'ADDRESS_LI': '9 Huntley Street', 'COMMUNITY': 'Toronto'},
+    {'ENGLISH_NA': 'Centre For Addiction and Mental Health - Queen Street Site', 'X': -8840787.345, 'Y': 5410559.731, 'ADDRESS_LI': '1001 Queen Street West', 'COMMUNITY': 'Toronto'},
+    {'ENGLISH_NA': 'Women\'s College Hospital', 'X': -8837347.905, 'Y': 5413180.501, 'ADDRESS_LI': '76 Grenville Street', 'COMMUNITY': 'Toronto'},
+    {'ENGLISH_NA': 'Trillium Health Partners - Credit Valley', 'X': -8872690.912, 'Y': 5397700.534, 'ADDRESS_LI': '2200 Eglinton Avenue West', 'COMMUNITY': 'Mississauga'},
+    {'ENGLISH_NA': 'Trillium Health Partners- Mississauga', 'X': -8862102.401, 'Y': 5399483.372, 'ADDRESS_LI': '100 Queensway West', 'COMMUNITY': 'Mississauga'},
+    {'ENGLISH_NA': 'Halton Healthcare Services - Oakville Trafalgar Memorial', 'X': -8879576.608, 'Y': 5380553.169, 'ADDRESS_LI': '3001 Hospital Gate', 'COMMUNITY': 'Oakville'},
+    {'ENGLISH_NA': 'St. Joseph\'s Healthcare Hamilton - Charlton Campus', 'X': -8891048.446, 'Y': 5349974.273, 'ADDRESS_LI': '50 Charlton Avenue East', 'COMMUNITY': 'Hamilton'},
+    {'ENGLISH_NA': 'St. Joseph\'s Healthcare Hamilton - West 5th', 'X': -8892439.265, 'Y': 5348589.345, 'ADDRESS_LI': '100 West 5th Street', 'COMMUNITY': 'Hamilton'},
+    {'ENGLISH_NA': 'St. Joseph\'s Healthcare Hamilton - King Campus', 'X': -8880499.174, 'Y': 5345606.892, 'ADDRESS_LI': '2757 King Street East', 'COMMUNITY': 'Hamilton'},
+    {'ENGLISH_NA': 'Hamilton Health Sciences - McMaster', 'X': -8896336.927, 'Y': 5351318.197, 'ADDRESS_LI': '1200 Main Street West', 'COMMUNITY': 'Hamilton'},
+    {'ENGLISH_NA': 'Hamilton Health Sciences - General', 'X': -8889343.744, 'Y': 5351828.938, 'ADDRESS_LI': '237 Barton Street East', 'COMMUNITY': 'Hamilton'},
+    {'ENGLISH_NA': 'Hamilton Health Sciences - St. Peter\'s Hospital', 'X': -8887427.432, 'Y': 5349358.842, 'ADDRESS_LI': '88 Maplewood Avenue', 'COMMUNITY': 'Hamilton'},
+    {'ENGLISH_NA': 'Hamilton Health Sciences - Juravinski', 'X': -8888344.115, 'Y': 5348468.049, 'ADDRESS_LI': '711 Concession Street', 'COMMUNITY': 'Hamilton'},
+    {'ENGLISH_NA': 'Hamilton Health Sciences - UCC', 'X': -8894169.047, 'Y': 5351647.49, 'ADDRESS_LI': '690 Main Street West', 'COMMUNITY': 'Hamilton'}
+];
 
             // Function to calculate distance between two points (Pythagorean formula for projected coordinates)
             function calculateDistance(x1, y1, x2, y2) {
