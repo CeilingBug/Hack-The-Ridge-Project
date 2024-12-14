@@ -22,31 +22,100 @@
 		<div id="resultsContainer"></div>
 		
 		<script>
-					const Ontario = {
-			"Barrie": ["Royal Victoria Regional Health Centre"],
-			"Brampton": ["Brampton Civic Hospital", "Peel Memorial Centre for Integrated Health and Wellness"],
-			"Brantford": ["Brantford General Hospital"],
-			"Burlington": ["Joseph Brant Hospital"],
-			"Cambridge": ["Cambridge Memorial Hospital"],
-			"Guelph": ["Guelph General Hospital"],
-			"Hamilton": ["St. Joseph's Healthcare Hamilton", "Hamilton Health Sciences", "McMaster Children's Hospital", "Juravinski Hospital and Cancer Centre"],
-			"Kingston": ["Kingston General Hospital", "Hotel Dieu Hospital"],
-			"Kitchener": ["Grand River Hospital", "St. Mary's General Hospital"],
-			"London": ["London Health Sciences Centre", "St. Joseph's Health Care", "Children's Hospital London Health Sciences Centre"],
-			"Markham": ["Markham Stouffville Hospital"],
-			"Mississauga": ["Trillium Health Partners - Mississauga Hospital", "Credit Valley Hospital"],
-			"Niagara Falls": ["Niagara Health System - Niagara Falls Site"],
-			"Ottawa": ["The Ottawa Hospital", "Montfort Hospital", "Cheo - Children's Hospital of Eastern Ontario"],
-			"Peterborough": ["Peterborough Regional Health Centre"],
-			"Richmond Hill": ["Mackenzie Richmond Hill Hospital"],
-			"St. Catharines": ["St. Catharines General Hospital", "Niagara Health - St. Catharines Site"],
-			"Sudbury": ["Health Sciences North"],
-			"Thunder Bay": ["Thunder Bay Regional Health Sciences Centre"],
-			"Toronto": ["Toronto General Hospital", "St. Michael's Hospital", "Sunnybrook Health Sciences Centre", "Mount Sinai Hospital", "Women's College Hospital", "The Hospital for Sick Children"],
-			"Vaughan": ["Cortellucci Vaughan Hospital"],
-			"Waterloo": ["Grand River Hospital"],
-			"Windsor": ["Windsor Regional Hospital"]
-			};
+			const Ontario = {
+			    "Barrie": {
+			      hospitals: ["Royal Victoria Regional Health Centre"],
+			      population: 141000
+			    },
+			    "Brampton": {
+			      hospitals: ["Brampton Civic Hospital", "Peel Memorial Centre for Integrated Health and Wellness"],
+			      population: 593638
+			    },
+			    "Brantford": {
+			      hospitals: ["Brantford General Hospital"],
+			      population: 101000
+			    },
+			    "Burlington": {
+			      hospitals: ["Joseph Brant Hospital"],
+			      population: 183000
+			    },
+			    "Cambridge": {
+			      hospitals: ["Cambridge Memorial Hospital"],
+			      population: 129000
+			    },
+			    "Guelph": {
+			      hospitals: ["Guelph General Hospital"],
+			      population: 131794
+			    },
+			    "Hamilton": {
+			      hospitals: ["St. Joseph's Healthcare Hamilton", "Hamilton Health Sciences", "McMaster Children's Hospital", "Juravinski Hospital and Cancer Centre"],
+			      population: 536917
+			    },
+			    "Kingston": {
+			      hospitals: ["Kingston General Hospital", "Hotel Dieu Hospital"],
+			      population: 123000
+			    },
+			    "Kitchener": {
+			      hospitals: ["Grand River Hospital", "St. Mary's General Hospital"],
+			      population: 256000
+			    },
+			    "London": {
+			      hospitals: ["London Health Sciences Centre", "St. Joseph's Health Care", "Children's Hospital London Health Sciences Centre"],
+			      population: 383822
+			    },
+			    "Markham": {
+			      hospitals: ["Markham Stouffville Hospital"],
+			      population: 328000
+			    },
+			    "Mississauga": {
+			      hospitals: ["Trillium Health Partners - Mississauga Hospital", "Credit Valley Hospital"],
+			      population: 721599
+			    },
+			    "Niagara Falls": {
+			      hospitals: ["Niagara Health System - Niagara Falls Site"],
+			      population: 88333
+			    },
+			    "Ottawa": {
+			      hospitals: ["The Ottawa Hospital", "Montfort Hospital", "Cheo - Children's Hospital of Eastern Ontario"],
+			      population: 934243
+			    },
+			    "Peterborough": {
+			      hospitals: ["Peterborough Regional Health Centre"],
+			      population: 81724
+			    },
+			    "Richmond Hill": {
+			      hospitals: ["Mackenzie Richmond Hill Hospital"],
+			      population: 195022
+			    },
+			    "St. Catharines": {
+			      hospitals: ["St. Catharines General Hospital", "Niagara Health - St. Catharines Site"],
+			      population: 133113
+			    },
+			    "Sudbury": {
+			      hospitals: ["Health Sciences North"],
+			      population: 164000
+			    },
+			    "Thunder Bay": {
+			      hospitals: ["Thunder Bay Regional Health Sciences Centre"],
+			      population: 110000
+			    },
+			    "Toronto": {
+			      hospitals: ["Toronto General Hospital", "St. Michael's Hospital", "Sunnybrook Health Sciences Centre", "Mount Sinai Hospital", "Women's College Hospital", "The Hospital for Sick Children"],
+			      population: 2930000
+			    },
+			    "Vaughan": {
+			      hospitals: ["Cortellucci Vaughan Hospital"],
+			      population: 306233
+			    },
+			    "Waterloo": {
+			      hospitals: ["Grand River Hospital"],
+			      population: 104000
+			    },
+			    "Windsor": {
+			      hospitals: ["Windsor Regional Hospital"],
+			      population: 330000
+			    }
+			  };
 			function searchHospital() {
 				let search = document.getElementById("searchInput").value;
 			  
@@ -56,7 +125,8 @@
 			  
 				for (let city in Ontario) {
 					if (city.toLowerCase().includes(search)) {
-						results.push(`${city} (Hospitals: ${Ontario[city].join(", ")})`);
+						let population = Ontario[city].population;
+						results.push(`${city} (Hospitals: ${Ontario[city].join(", ")}) (City population: ${population})`);
 					}
 				}
 				let resultsContainer = document.getElementById("resultsContainer");
