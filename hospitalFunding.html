@@ -132,11 +132,11 @@
 			            let ratio = population / hospitalCount;
 			
 			            let rating = "bad";
-			            if (ratio <= 75000) {
+			            if (ratio <= 100,000) {
 			                rating = "great";
-			            } else if (ratio <= 100000) {
+			            } else if (ratio <= 135000) {
 			                rating = "good";
-			            } else if (ratio <= 130000) {
+			            } else if (ratio <= 175000) {
 			                rating = "okay";
 			            }
 			
@@ -150,8 +150,8 @@
 			        results.forEach(result => {
 			            let resultElement = document.createElement("p");
 			            resultElement.textContent = result;
-			            resultElement.style.padding = "10px";
-			            resultElement.style.margin = "10px 0";
+			            resultElement.style.padding = "20px";
+			            resultElement.style.margin = "20px 0";
 			            resultElement.style.border = "1px solid #ccc";
 			            resultElement.style.borderRadius = "5px";
 			            resultElement.style.backgroundColor = "#ffffff";
