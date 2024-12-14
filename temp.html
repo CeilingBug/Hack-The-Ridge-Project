@@ -1,37 +1,64 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BMI Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 15px;
+            margin-right: 10px;
+        }
+    </style>
 </head>
 <body>
     <h1>BMI Calculator</h1>
-    <form method="post" action="/calculate">
-        <label>
-            <input type="radio" name="unit" value="metric" checked> Metric (cm, kg)
-        </label>
-        <label>
-            <input type="radio" name="unit" value="imperial"> Imperial (ft, in, lbs)
-        </label>
-        <br><br>
-        <label for="height1">Height:</label>
-        <input type="text" id="height1" name="height1" placeholder="e.g., 170 (cm) or 5 (ft)" required><br><br>
-        <div id="imperial-fields" style="display: none;">
-            <label for="height2">Inches:</label>
-            <input type="text" id="height2" name="height2" placeholder="e.g., 7 (in)">
+    <form id="bmiForm">
+        <div class="form-group">
+            <label>
+                <input type="radio" id="rbMetric" name="unit" checked> Metric
+            </label>
+            <label>
+                <input type="radio" id="rbImperial" name="unit"> Imperial
+            </label>
         </div>
-        <label for="weight">Weight:</label>
-        <input type="text" id="weight" name="weight" placeholder="e.g., 70 (kg) or 150 (lbs)" required><br><br>
-        <button type="submit">Calculate</button>
-        <button type="reset">Clear</button>
+        <div class="form-group">
+            <label id="lblHeight1">Height (cm):</label>
+            <input type="text" id="txtHeight1" required>
+        </div>
+        <div class="form-group" style="display: none;">
+            <label id="lblHeight2">Height (inches):</label>
+            <input type="text" id="txtHeight2">
+        </div>
+        <div class="form-group">
+            <label id="lblWeight">Weight (kg):</label>
+            <input type="text" id="txtWeight" required>
+        </div>
+        <div class="form-group">
+            <button type="submit">Calculate BMI</button>
+            <button type="button" id="btnClear">Clear</button>
+        </div>
+        <div class="form-group">
+            <label>BMI:</label>
+            <input type="text" id="txtBMI" readonly>
+        </div>
     </form>
-
-    {% if bmi %}
-        <h2>Your BMI: {{ bmi }}</h2>
-    {% elif error %}
-        <h2 style="color: red;">{{ error }}</h2>
-    {% endif %}
-
-    <script>
-        document.querySelectorAll('input[name=\"unit\"]').forEach(radio => {\n            radio.addEventListener('change', () => {\n                const imperialFields = document.getElementById('imperial-fields');\n                if (radio.value === 'imperial') {\n                    imperialFields.style.display = 'block';\n                } else {\n                    imperialFields.style.display = 'none';\n                }\n            });\n        });\n    </script>
+    <script src="bmi_calculator_web.js"></script>
 </body>
 </html>
